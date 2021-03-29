@@ -5,6 +5,7 @@
       "type": "CustomActivityOne",
       "name": "CustomActivityOne",
       "state": {
+        "variableName": "CvdOutput",
         "input1": "value1",
         "input2": "value2"
       }
@@ -14,8 +15,8 @@
       "type": "WriteLine",
       "state": {
         "textExpression": {
-          "expression": "{{ Activities.CustomActivityOne.CvdOutput }}",
-          "syntax": "Liquid"
+          "expression": "CvdOutput",
+          "syntax": "JavaScript"
         }
       }
     }

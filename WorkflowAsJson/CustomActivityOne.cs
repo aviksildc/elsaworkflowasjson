@@ -26,12 +26,20 @@ namespace Elsa.Test.Activities
             set => SetState(value);
         }
 
+        public string VariableName
+        {
+            get => GetState<string>();
+            set => SetState(value);
+        }
+
         protected override ActivityExecutionResult OnExecute(WorkflowExecutionContext context)
         {
             string output = Input1 + ", " + Input2;
 
             //Console.WriteLine(output);
-            Output.SetVariable("CvdOutput", output);
+            //Output.SetVariable("CvdOutput", output);
+            context.CurrentScope.SetVariable(VariableName, output);
+            context.SetLastResult(output);
             return Done();
         }
     }
