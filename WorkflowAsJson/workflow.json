@@ -1,0 +1,30 @@
+{
+  "activities": [
+    {
+      "id": "id1",
+      "type": "CustomActivityOne",
+      "name": "CustomActivityOne",
+      "state": {
+        "input1": "value1",
+        "input2": "value2"
+      }
+    },
+    {
+      "id": "id2",
+      "type": "WriteLine",
+      "state": {
+        "textExpression": {
+          "expression": "{{ Activities.CustomActivityOne.CvdOutput }}",
+          "syntax": "Liquid"
+        }
+      }
+    }
+  ],
+  "connections": [
+    {
+      "sourceActivityId": "id1",
+      "destinationActivityId": "id2",
+      "outcome": "Done"
+    }
+  ]
+}
